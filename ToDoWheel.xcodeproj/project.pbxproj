@@ -3,11 +3,12 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		5512334083661EBD909D147C /* Pods_ToDoWheel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFEF26EC5B8E6F97EB05B3D8 /* Pods_ToDoWheel.framework */; };
+		AC4E2C99245FCD75007F7AE4 /* SpokeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4E2C98245FCD75007F7AE4 /* SpokeViewController.swift */; };
 		ACC43CED245902B300F89122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC43CEC245902B300F89122 /* AppDelegate.swift */; };
 		ACC43CEF245902B300F89122 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC43CEE245902B300F89122 /* SceneDelegate.swift */; };
 		ACC43CF1245902B300F89122 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC43CF0245902B300F89122 /* ItemViewController.swift */; };
@@ -20,6 +21,7 @@
 
 /* Begin PBXFileReference section */
 		1E013C6C03E0FBA9C437A0D8 /* Pods-ToDoWheel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoWheel.release.xcconfig"; path = "Target Support Files/Pods-ToDoWheel/Pods-ToDoWheel.release.xcconfig"; sourceTree = "<group>"; };
+		AC4E2C98245FCD75007F7AE4 /* SpokeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpokeViewController.swift; path = ToDoWheel/View/SpokeViewController.swift; sourceTree = SOURCE_ROOT; };
 		ACC43CE9245902B300F89122 /* ToDoWheel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoWheel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC43CEC245902B300F89122 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACC43CEE245902B300F89122 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -52,7 +54,6 @@
 				E72434D51572DB23BE4D848C /* Pods-ToDoWheel.debug.xcconfig */,
 				1E013C6C03E0FBA9C437A0D8 /* Pods-ToDoWheel.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -116,6 +117,7 @@
 		ACC43D072459297400F89122 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				AC4E2C98245FCD75007F7AE4 /* SpokeViewController.swift */,
 				ACC43D0A245947CD00F89122 /* CategoryViewController.swift */,
 				ACC43CF0245902B300F89122 /* ItemViewController.swift */,
 			);
@@ -238,6 +240,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ACC43D0B245947CD00F89122 /* CategoryViewController.swift in Sources */,
+				AC4E2C99245FCD75007F7AE4 /* SpokeViewController.swift in Sources */,
 				ACC43CF1245902B300F89122 /* ItemViewController.swift in Sources */,
 				ACC43CF7245902B300F89122 /* ToDoWheel.xcdatamodeld in Sources */,
 				ACC43CED245902B300F89122 /* AppDelegate.swift in Sources */,
