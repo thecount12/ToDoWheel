@@ -3,14 +3,20 @@
     <entity name="Category" representedClassName="Category" syncable="YES" codeGenerationType="class">
         <attribute name="name" attributeType="String" defaultValueString=""/>
         <relationship name="items" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Item" inverseName="parentCategory" inverseEntity="Item"/>
+        <relationship name="parentSpoke" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Spoke" inverseName="categories" inverseEntity="Spoke"/>
     </entity>
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="done" attributeType="Boolean" defaultValueString="NO" usesScalarValueType="YES"/>
         <attribute name="title" attributeType="String" defaultValueString=""/>
         <relationship name="parentCategory" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="items" inverseEntity="Category"/>
     </entity>
+    <entity name="Spoke" representedClassName="Spoke" syncable="YES" codeGenerationType="class">
+        <attribute name="spoke_name" attributeType="String" defaultValueString=""/>
+        <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="parentSpoke" inverseEntity="Category"/>
+    </entity>
     <elements>
+        <element name="Category" positionX="-166.5234375" positionY="14.37890625" width="128" height="88"/>
         <element name="Item" positionX="123.9765625" positionY="15.79296875" width="128" height="88"/>
-        <element name="Category" positionX="-166.5234375" positionY="14.37890625" width="128" height="73"/>
+        <element name="Spoke" positionX="-356.66015625" positionY="16.66796875" width="128" height="73"/>
     </elements>
 </model>

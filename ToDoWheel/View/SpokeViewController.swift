@@ -1,8 +1,8 @@
 //
-//  CategoryViewController.swift
+//  SpokeViewController.swift
 //  ToDoWheel
 //
-//  Created by William Gunnells on 4/28/20.
+//  Created by William Gunnells on 5/3/20.
 //  Copyright © 2020 William Gunnells. All rights reserved.
 //
 
@@ -10,62 +10,55 @@ import UIKit
 import CoreData
 import SwipeCellKit
 
-class CategoryViewController: UITableViewController {
+class SpokeViewController: UITableViewController {
 
-    var categories = [`Category`]()
-    
-    var selectedSpoke : Spoke? {
-        didSet {
-            loadCategory()
-        }
-    }
-    
+    var spokes = [Spoke]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        loadCategory()
+        
+        loadSpokes()
         tableView.rowHeight = 80.0
     }
 
     // MARK: - TableView Datasource Methods
-    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return categories.count
+        return spokes.count
     }
     
 //    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell") as! SwipeTableViewCell
-//        cell.delegate = self
+//        let cell = tableView.dequeueReusableCell(withIdentifier: "SpokeCell", for: indexPath)
+//        cell.textLabel?.text = spokes[indexPath.row].spoke_name
 //        return cell
 //    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as! SwipeTableViewCell
-        cell.textLabel?.text = categories[indexPath.row].name
+        let cell = tableView.dequeueReusableCell(withIdentifier: "SpokeCell", for: indexPath) as! SwipeTableViewCell
+        cell.textLabel?.text = spokes[indexPath.row].spoke_name
         cell.delegate = self
         return cell
     }
     
-    //MARK: - TableView Delegate Methods
+    // MARK: - TableView Delegate Methods
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        performSegue(withIdentifier: "goToItems", sender: self)
-        
+        performSegue(withIdentifier: "goToCategory", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destinationVC = segue.destination as! ItemViewController
+        let destinationVC = segue.destination as! CategoryViewController
         
         if let indexPath = tableView.indexPathForSelectedRow {
-            destinationVC.selectedCategory = categories[indexPath.row]
+            destinationVC.selectedSpoke = spokes[indexPath.row]
         }
     }
     
+       
     // MARK: - Data Manipulation Methods
-    
-    func saveCategories() {
+       
+    func saveSpokes() {
         do {
             try context.save()
         } catch {
@@ -74,48 +67,30 @@ class CategoryViewController: UITableViewController {
 //        tableView.reloadData()
     }
     
-    func loadCategory(with request: NSFetchRequest<Category> = Category.fetchRequest(), predicate: NSPredicate? = nil) {
-           let spokesPredicate = NSPredicate(format: "parentSpoke.spoke_name MATCHES %@", selectedSpoke!.spoke_name!)
-           if let additionalPredicate = predicate {
-               request.predicate = NSCompoundPredicate(andPredicateWithSubpredicates: [spokesPredicate, additionalPredicate])
-           } else {
-               request.predicate = spokesPredicate
-           }
-
-           do {
-               categories = try context.fetch(request)
-           } catch {
-               print("Error fetching data from context \(error)")
-           }
-           tableView.reloadData()
-       }
     
-//    func loadCategories () {
-//
-//        let request : NSFetchRequest<Category> = Category.fetchRequest()
-//        do {
-//        categories = try context.fetch(request)
-//        } catch {
-//            print("Error loading categories \(error)")
-//        }
-//        tableView.reloadData()
-//    }
-//
+    func loadSpokes () {
+        let request : NSFetchRequest<Spoke> = Spoke.fetchRequest()
+        do {
+        spokes = try context.fetch(request)
+        } catch {
+            print("Error loading categories \(error)")
+        }
+        tableView.reloadData()
+    }
+    
     // MARK: - Add New Categories
-    
+
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
         var textField = UITextField()
         
         let alert = UIAlertController(title: "Add detail Item", message: "", preferredStyle: .alert)
         let action = UIAlertAction(title: "Add Item", style: .default) { (action) in
-            let newItem = Category(context: self.context)
+            let newItem = Spoke(context: self.context)
             print("Success!")
             print(textField.text!)
-
-            newItem.name = textField.text!
-            newItem.parentSpoke = self.selectedSpoke
-            self.categories.append(newItem)
-            self.saveCategories()
+            newItem.spoke_name = textField.text!
+            self.spokes.append(newItem)
+            self.saveSpokes()
             self.tableView.reloadData()
         }
         alert.addTextField { (alertTextField) in
@@ -127,27 +102,20 @@ class CategoryViewController: UITableViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    
-    
 }
 
-//MARK: - Swipe Cell Delegate Methods
-
-extension CategoryViewController: SwipeTableViewCellDelegate {
+extension SpokeViewController: SwipeTableViewCellDelegate {
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath, for orientation: SwipeActionsOrientation) -> [SwipeAction]? {
         guard orientation == .right else { return nil }
-
         let deleteAction = SwipeAction(style: .destructive, title: "Delete") { action, indexPath in
             // handle action by updating model with deletion
             print("Item deleted")
-            self.context.delete(self.categories[indexPath.row])
-            self.categories.remove(at: indexPath.row)
-            self.saveCategories()
+            self.context.delete(self.spokes[indexPath.row])
+            self.spokes.remove(at: indexPath.row)
+            self.saveSpokes()
         }
-
         // customize the action appearance
         deleteAction.image = UIImage(named: "delete-icon.png")
-
         return [deleteAction]
     }
     
@@ -158,4 +126,3 @@ extension CategoryViewController: SwipeTableViewCellDelegate {
         return options
     }
 }
-
