@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		5512334083661EBD909D147C /* Pods_ToDoWheel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DFEF26EC5B8E6F97EB05B3D8 /* Pods_ToDoWheel.framework */; };
 		AC4E2C99245FCD75007F7AE4 /* SpokeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC4E2C98245FCD75007F7AE4 /* SpokeViewController.swift */; };
+		ACA7CF902467B67F00E7BDCA /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ACA7CF8F2467B67F00E7BDCA /* CloudKit.framework */; };
 		ACC43CED245902B300F89122 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC43CEC245902B300F89122 /* AppDelegate.swift */; };
 		ACC43CEF245902B300F89122 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC43CEE245902B300F89122 /* SceneDelegate.swift */; };
 		ACC43CF1245902B300F89122 /* ItemViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC43CF0245902B300F89122 /* ItemViewController.swift */; };
@@ -22,6 +23,8 @@
 /* Begin PBXFileReference section */
 		1E013C6C03E0FBA9C437A0D8 /* Pods-ToDoWheel.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoWheel.release.xcconfig"; path = "Target Support Files/Pods-ToDoWheel/Pods-ToDoWheel.release.xcconfig"; sourceTree = "<group>"; };
 		AC4E2C98245FCD75007F7AE4 /* SpokeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SpokeViewController.swift; path = ToDoWheel/View/SpokeViewController.swift; sourceTree = SOURCE_ROOT; };
+		ACA7CF8E2467B66500E7BDCA /* ToDoWheelRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ToDoWheelRelease.entitlements; sourceTree = "<group>"; };
+		ACA7CF8F2467B67F00E7BDCA /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		ACC43CE9245902B300F89122 /* ToDoWheel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ToDoWheel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACC43CEC245902B300F89122 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		ACC43CEE245902B300F89122 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,6 +45,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5512334083661EBD909D147C /* Pods_ToDoWheel.framework in Frameworks */,
+				ACA7CF902467B67F00E7BDCA /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,6 +64,7 @@
 		69129C4CBAC9E8EFD5FA92A8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				ACA7CF8F2467B67F00E7BDCA /* CloudKit.framework */,
 				DFEF26EC5B8E6F97EB05B3D8 /* Pods_ToDoWheel.framework */,
 			);
 			name = Frameworks;
@@ -86,6 +91,7 @@
 		ACC43CEB245902B300F89122 /* ToDoWheel */ = {
 			isa = PBXGroup;
 			children = (
+				ACA7CF8E2467B66500E7BDCA /* ToDoWheelRelease.entitlements */,
 				ACC43CEE245902B300F89122 /* SceneDelegate.swift */,
 				ACC43CEC245902B300F89122 /* AppDelegate.swift */,
 				ACC43D072459297400F89122 /* Controller */,
@@ -409,6 +415,7 @@
 			baseConfigurationReference = 1E013C6C03E0FBA9C437A0D8 /* Pods-ToDoWheel.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ToDoWheel/ToDoWheelRelease.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X98D4GJJ83;
 				INFOPLIST_FILE = ToDoWheel/Info.plist;
