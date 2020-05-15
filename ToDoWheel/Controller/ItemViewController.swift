@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import SwipeCellKit
+import ChameleonFramework
 
 class ItemViewController: UITableViewController {
 
@@ -30,6 +31,14 @@ class ItemViewController: UITableViewController {
         tableView.rowHeight = 80.0
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        title = selectedCategory!.name
+        guard let navBar = navigationController?.navigationBar else {
+            fatalError("Navigation controller does not exist.")
+        }
+        navBar.barTintColor = UIColor(hexString: "808080")
+    }
 
     // MARK: - Datasource Methods
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -47,6 +56,12 @@ class ItemViewController: UITableViewController {
         let item = itemArray[indexPath.row]
         
         cell.textLabel?.text = item.title
+//        cell.backgroundColor = UIColor(hexString: categories[indexPath.row].cat_color ?? "1D9Bf6")
+        if let color = FlatWhite().darken(byPercentage:CGFloat(indexPath.row) / CGFloat(itemArray.count)) {
+            cell.backgroundColor = color
+            cell.textLabel?.textColor = ContrastColorOf(color, returnFlat: true)
+        }
+        
         
 //        cell.accessoryType = item.done ? .checkmark : .none
         cell.delegate = self

@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import SwipeCellKit
+import ChameleonFramework
 
 class SpokeViewController: UITableViewController {
 
@@ -37,6 +38,8 @@ class SpokeViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "SpokeCell", for: indexPath) as! SwipeTableViewCell
         cell.textLabel?.text = spokes[indexPath.row].spoke_name
+        cell.backgroundColor = UIColor(hexString: spokes[indexPath.row].spoke_color ?? "1D9Bf6")
+
         cell.delegate = self
         return cell
     }
@@ -89,6 +92,7 @@ class SpokeViewController: UITableViewController {
             print("Success!")
             print(textField.text!)
             newItem.spoke_name = textField.text!
+            newItem.spoke_color = UIColor.randomFlat().hexValue()
             self.spokes.append(newItem)
             self.saveSpokes()
             self.tableView.reloadData()

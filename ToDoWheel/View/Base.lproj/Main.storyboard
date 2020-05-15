@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Wheel Items-->
+        <!--Spokes-->
         <scene sceneID="fB0-tf-YY5">
             <objects>
                 <tableViewController id="cOY-pe-A2A" customClass="SpokeViewController" customModule="ToDoWheel" customModuleProvider="target" sceneMemberID="viewController">
@@ -29,7 +29,7 @@
                             <outlet property="delegate" destination="cOY-pe-A2A" id="V1w-b1-dPw"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Wheel Items" id="ASt-0X-qAY">
+                    <navigationItem key="navigationItem" title="Spokes" id="ASt-0X-qAY">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="SDW-f5-uFK">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -45,7 +45,7 @@
             </objects>
             <point key="canvasLocation" x="177" y="42"/>
         </scene>
-        <!--Category Items-->
+        <!--Categories-->
         <scene sceneID="wjR-im-7uH">
             <objects>
                 <tableViewController id="xHc-yI-FhG" customClass="CategoryViewController" customModule="ToDoWheel" customModuleProvider="target" sceneMemberID="viewController">
@@ -68,7 +68,7 @@
                             <outlet property="delegate" destination="xHc-yI-FhG" id="JXh-GT-klo"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Category Items" id="gc2-Y2-Utk">
+                    <navigationItem key="navigationItem" title="Categories" id="gc2-Y2-Utk">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="nan-l2-4L9">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -84,7 +84,7 @@
             </objects>
             <point key="canvasLocation" x="961" y="42"/>
         </scene>
-        <!--Detail Item List-->
+        <!--Items-->
         <scene sceneID="Q5O-cS-cS8">
             <objects>
                 <tableViewController id="hQ5-mc-4IX" customClass="ItemViewController" customModule="ToDoWheel" customModuleProvider="target" sceneMemberID="viewController">
@@ -115,7 +115,7 @@
                             <outlet property="delegate" destination="hQ5-mc-4IX" id="1eC-ph-cC7"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Detail Item List" id="eOw-XU-Qjg">
+                    <navigationItem key="navigationItem" title="Items" id="eOw-XU-Qjg">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="JH8-xO-eJm">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -133,9 +133,10 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Jw4-e3-1UG" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="z2h-2y-Zhw">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="z2h-2y-Zhw">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="barTintColor" systemColor="systemBlueColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>

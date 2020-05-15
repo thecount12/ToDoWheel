@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 import SwipeCellKit
+import ChameleonFramework
 
 class CategoryViewController: UITableViewController {
 
@@ -28,6 +29,14 @@ class CategoryViewController: UITableViewController {
         loadCategory()
         tableView.rowHeight = 80.0
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        title = selectedSpoke!.spoke_name
+        guard let navBar = navigationController?.navigationBar else {
+            fatalError("Navigation controller does not exist.")
+        }
+        navBar.barTintColor = UIColor(hexString: "707070")
+    }
 
     // MARK: - TableView Datasource Methods
     
@@ -44,6 +53,7 @@ class CategoryViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as! SwipeTableViewCell
         cell.textLabel?.text = categories[indexPath.row].name
+        cell.backgroundColor = UIColor(hexString: categories[indexPath.row].cat_color ?? "1D9Bf6")
         cell.delegate = self
         return cell
     }
@@ -113,6 +123,7 @@ class CategoryViewController: UITableViewController {
             print(textField.text!)
 
             newItem.name = textField.text!
+            newItem.cat_color = UIColor.randomFlat().hexValue()
             newItem.parentSpoke = self.selectedSpoke
             self.categories.append(newItem)
             self.saveCategories()
