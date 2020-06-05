@@ -35,6 +35,7 @@
 		ACC43CFB245902DC00F89122 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		ACC43CFD245902DC00F89122 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		ACC43D0A245947CD00F89122 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CategoryViewController.swift; path = ToDoWheel/Controller/CategoryViewController.swift; sourceTree = SOURCE_ROOT; };
+		ACE964232480CC4E00BFA582 /* ToDoWheelDebug.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ToDoWheelDebug.entitlements; sourceTree = "<group>"; };
 		DFEF26EC5B8E6F97EB05B3D8 /* Pods_ToDoWheel.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_ToDoWheel.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E72434D51572DB23BE4D848C /* Pods-ToDoWheel.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ToDoWheel.debug.xcconfig"; path = "Target Support Files/Pods-ToDoWheel/Pods-ToDoWheel.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -91,6 +92,7 @@
 		ACC43CEB245902B300F89122 /* ToDoWheel */ = {
 			isa = PBXGroup;
 			children = (
+				ACE964232480CC4E00BFA582 /* ToDoWheelDebug.entitlements */,
 				ACA7CF8E2467B66500E7BDCA /* ToDoWheelRelease.entitlements */,
 				ACC43CEE245902B300F89122 /* SceneDelegate.swift */,
 				ACC43CEC245902B300F89122 /* AppDelegate.swift */,
@@ -395,6 +397,7 @@
 			baseConfigurationReference = E72434D51572DB23BE4D848C /* Pods-ToDoWheel.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = ToDoWheel/ToDoWheelDebug.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = X98D4GJJ83;
 				INFOPLIST_FILE = ToDoWheel/Info.plist;
