@@ -16,7 +16,6 @@ class SpokeViewController: UITableViewController {
     var spokes = [Spoke]()
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -75,6 +74,7 @@ class SpokeViewController: UITableViewController {
         let request : NSFetchRequest<Spoke> = Spoke.fetchRequest()
         do {
         spokes = try context.fetch(request)
+            context.automaticallyMergesChangesFromParent = true
         } catch {
             print("Error loading categories \(error)")
         }

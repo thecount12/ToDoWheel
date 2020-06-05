@@ -16,6 +16,16 @@
         <attribute name="spoke_name" attributeType="String" defaultValueString=""/>
         <relationship name="categories" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="parentSpoke" inverseEntity="Category"/>
     </entity>
+    <configuration name="Cloud" usedWithCloudKit="YES">
+        <memberEntity name="Category"/>
+        <memberEntity name="Item"/>
+        <memberEntity name="Spoke"/>
+    </configuration>
+    <configuration name="Local" usedWithCloudKit="YES">
+        <memberEntity name="Category"/>
+        <memberEntity name="Item"/>
+        <memberEntity name="Spoke"/>
+    </configuration>
     <elements>
         <element name="Category" positionX="-166.5234375" positionY="14.37890625" width="128" height="103"/>
         <element name="Item" positionX="123.9765625" positionY="15.79296875" width="128" height="88"/>
